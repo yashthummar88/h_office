@@ -276,3 +276,20 @@ Container getFunnelContainer(
     child: Text(text),
   );
 }
+
+getTextItems({required String title, required String text}) {
+  return Text.rich(
+    TextSpan(
+      children: [
+        TextSpan(
+          text: title,
+          style: TextStyle(fontWeight: FontWeight.w600),
+        ),
+        TextSpan(
+          text: text,
+          style: TextStyle(),
+        ),
+      ],
+    ),
+  );
+}

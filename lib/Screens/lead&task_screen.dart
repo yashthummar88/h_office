@@ -2,19 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:h_office/Constant/constant.dart';
 import 'package:h_office/Constant/imageConstant.dart';
 import 'package:h_office/Helper/theme_helper.dart';
+import 'package:h_office/Screens/TaskScreens/task_screen.dart';
 import 'package:h_office/Utils/math_utils.dart';
 import 'package:h_office/Utils/utilities.dart';
 import 'package:h_office/main.dart';
 
-class LeadScreen extends StatefulWidget {
-  static const routes = "lead_screen";
-  const LeadScreen({Key? key}) : super(key: key);
+class LeadTaskScreen extends StatefulWidget {
+  static const routes = "lead_and_task_screen";
+  const LeadTaskScreen({Key? key}) : super(key: key);
 
   @override
-  _LeadScreenState createState() => _LeadScreenState();
+  _LeadTaskScreenState createState() => _LeadTaskScreenState();
 }
 
-class _LeadScreenState extends State<LeadScreen> {
+class _LeadTaskScreenState extends State<LeadTaskScreen> {
   List<String> leadCategoriesTitle = [
     "Quotations",
     "Sales",
@@ -47,11 +48,11 @@ class _LeadScreenState extends State<LeadScreen> {
   ];
   List<String> taskCategoriesTitle = [
     "New Tasks",
-    "Overdue Task",
-    "Following Task",
-    "Open Task",
-    "Close Task",
-    "All Task",
+    "Overdue Tasks",
+    "Following Tasks",
+    "Open Tasks",
+    "Close Tasks",
+    "All Tasks",
   ];
   @override
   Widget build(BuildContext context) {
@@ -159,45 +160,59 @@ class _LeadScreenState extends State<LeadScreen> {
                                     childAspectRatio: (5 / 4.7),
                                   ),
                                   itemBuilder: (context, index) {
-                                    return Container(
-                                      padding: EdgeInsets.symmetric(
-                                          vertical: getSize(5, context)),
-                                      decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius: BorderRadius.circular(10),
-                                      ),
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceAround,
-                                        children: [
-                                          Text(
-                                            "\$10",
-                                            style: TextStyle(
-                                                color: appTheme.primaryTheme),
-                                          ),
-                                          Image(
-                                            image: AssetImage((ModuleConstant
-                                                        .screenType ==
-                                                    ModuleConstant
-                                                        .MODULE_TYPE_TASK_SCREEN)
-                                                ? taskCategoriesImage[index]
-                                                : leadCategoriesImage[index]),
-                                            width: getSize(50, context),
-                                          ),
-                                          Text(
-                                            (ModuleConstant.screenType ==
-                                                    ModuleConstant
-                                                        .MODULE_TYPE_TASK_SCREEN)
-                                                ? taskCategoriesTitle[index]
-                                                : leadCategoriesTitle[index],
-                                            style: TextStyle(
-                                                fontSize:
-                                                    getFontSize(15, context)),
-                                            textAlign: TextAlign.center,
-                                          ),
-                                        ],
+                                    return InkWell(
+                                      onTap: () {
+                                        if (ModuleConstant.screenType ==
+                                            ModuleConstant
+                                                .MODULE_TYPE_TASK_SCREEN) {
+                                          TaskScreenModuleConstant
+                                                  .taskListScreenType =
+                                              taskCategoriesTitle[index];
+                                          Navigator.of(context)
+                                              .pushNamed(TaskScreen.routes);
+                                        }
+                                      },
+                                      child: Container(
+                                        padding: EdgeInsets.symmetric(
+                                            vertical: getSize(5, context)),
+                                        decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                        ),
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceAround,
+                                          children: [
+                                            Text(
+                                              "\$10",
+                                              style: TextStyle(
+                                                  color: appTheme.primaryTheme),
+                                            ),
+                                            Image(
+                                              image: AssetImage((ModuleConstant
+                                                          .screenType ==
+                                                      ModuleConstant
+                                                          .MODULE_TYPE_TASK_SCREEN)
+                                                  ? taskCategoriesImage[index]
+                                                  : leadCategoriesImage[index]),
+                                              width: getSize(50, context),
+                                            ),
+                                            Text(
+                                              (ModuleConstant.screenType ==
+                                                      ModuleConstant
+                                                          .MODULE_TYPE_TASK_SCREEN)
+                                                  ? taskCategoriesTitle[index]
+                                                  : leadCategoriesTitle[index],
+                                              style: TextStyle(
+                                                  fontSize:
+                                                      getFontSize(15, context)),
+                                              textAlign: TextAlign.center,
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     );
                                   }),

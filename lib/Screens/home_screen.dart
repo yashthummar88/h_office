@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:h_office/Constant/constant.dart';
 import 'package:h_office/Constant/imageConstant.dart';
 import 'package:h_office/Helper/theme_helper.dart';
-import 'package:h_office/Screens/lead_screen.dart';
+import 'package:h_office/Screens/contact_screen.dart';
+import 'package:h_office/Screens/lead&task_screen.dart';
 import 'package:h_office/Utils/math_utils.dart';
 import 'dart:math' as math;
 
@@ -72,7 +73,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     onTap: () {
                       ModuleConstant.screenType =
                           ModuleConstant.MODULE_TYPE_LEAD_SCREEN;
-                      Navigator.of(context).pushNamed(LeadScreen.routes);
+                      Navigator.of(context).pushNamed(LeadTaskScreen.routes);
                     },
                     child: getContainer(
                         image: InquiryIcon,
@@ -83,7 +84,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     onTap: () {
                       ModuleConstant.screenType =
                           ModuleConstant.MODULE_TYPE_TASK_SCREEN;
-                      Navigator.of(context).pushNamed(LeadScreen.routes);
+                      Navigator.of(context).pushNamed(LeadTaskScreen.routes);
                     },
                     child: getContainer(
                         image: TaskIcon,
@@ -95,10 +96,15 @@ class _HomeScreenState extends State<HomeScreen> {
               SizedBox(
                 height: getSize(40, context),
               ),
-              getContainer(
-                  image: ContactIcon,
-                  title: "Contact",
-                  imageSize: getSize(125, context))
+              InkWell(
+                onTap: () {
+                  Navigator.of(context).pushNamed(ContactScreen.routes);
+                },
+                child: getContainer(
+                    image: ContactIcon,
+                    title: "Contact",
+                    imageSize: getSize(125, context)),
+              )
             ],
           ),
         ),

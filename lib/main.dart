@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:h_office/Screens/contact_screen.dart';
 import 'package:h_office/Screens/home_screen.dart';
-import 'package:h_office/Screens/lead_screen.dart';
+import 'package:h_office/Screens/lead&task_screen.dart';
+import 'package:h_office/Screens/splash_screen.dart';
 
 import 'Helper/theme_helper.dart';
+import 'Screens/TaskScreens/task_screen.dart';
 import 'Screens/login_screen.dart';
 
 void main() {
@@ -30,9 +33,12 @@ class _MyAppState extends State<MyApp> {
       ),
       debugShowCheckedModeBanner: false,
       routes: {
-        "/": (context) => LoginScreen(),
+        "/": (context) => SplashScreen(),
+        LoginScreen.route: (context) => LoginScreen(),
         HomeScreen.route: (context) => HomeScreen(),
-        LeadScreen.routes: (context) => LeadScreen(),
+        LeadTaskScreen.routes: (context) => LeadTaskScreen(),
+        ContactScreen.routes: (context) => ContactScreen(),
+        TaskScreen.routes: (context) => TaskScreen(),
       },
     );
   }

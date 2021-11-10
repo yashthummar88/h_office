@@ -31,3 +31,6 @@ const String TaskFollowingTask = "assets/ic_taskfollowingtasks.png";
 const String TaskNewDueTask = "assets/ic_tasknewduetasks.png";
 const String TaskOpenTask = "assets/ic_taskopentasks.png";
 const String TaskOverDueTask = "assets/ic_taskoverduetasks.png";
+
+//SplashScreen
+const String SplashScreenImage = "assets/loaderpage.gif";
