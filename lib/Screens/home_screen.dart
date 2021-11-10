@@ -21,10 +21,11 @@ class _HomeScreenState extends State<HomeScreen> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          leading: Image(
-            image: AssetImage(h_logo2),
-            color: appTheme.primaryTheme,
-            width: getSize(20, context),
+          leading: Padding(
+            padding: EdgeInsets.all(10),
+            child: Image(
+              image: AssetImage(h_logo2),
+            ),
           ),
           actions: [
             IconButton(onPressed: () {}, icon: Icon(Icons.notifications)),

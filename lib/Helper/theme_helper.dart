@@ -4,6 +4,7 @@ class BaseTheme {
   Color get primaryTheme => fromHex('#137F43');
   Color get themeBackground => fromHex('#393939');
   Color get statusBarColor => fromHex('#393939');
+  Color get canvasColor => fromHex('#e9ecef');
 }
 
 BaseTheme get appTheme => BaseTheme();

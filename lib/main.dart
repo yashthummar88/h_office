@@ -26,6 +26,7 @@ class _MyAppState extends State<MyApp> {
         accentColor: appTheme.primaryTheme,
         splashColor: Colors.transparent,
         highlightColor: Colors.transparent,
+        canvasColor: appTheme.canvasColor,
       ),
       debugShowCheckedModeBanner: false,
       routes: {

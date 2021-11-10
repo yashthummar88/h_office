@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+// import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:h_office/Helper/theme_helper.dart';
 
 import 'dart:math' as math;
@@ -256,3 +257,22 @@ class ActionButton extends StatelessWidget {
 //     ],
 //   );
 // }
+
+Container getFunnelContainer(
+    {required BuildContext context,
+    required double height,
+    required double width,
+    required String image,
+    required String text}) {
+  return Container(
+    height: getSize(height, context),
+    width: getSize(width, context),
+    decoration: BoxDecoration(
+      image: DecorationImage(
+        image: AssetImage(image),
+      ),
+    ),
+    alignment: Alignment.center,
+    child: Text(text),
+  );
+}
