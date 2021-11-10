@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:h_office/Constant/constant.dart';
 import 'package:h_office/Constant/imageConstant.dart';
 import 'package:h_office/Helper/theme_helper.dart';
 import 'package:h_office/Screens/lead_screen.dart';
@@ -10,7 +11,6 @@ import 'package:h_office/Utils/utilities.dart';
 class HomeScreen extends StatefulWidget {
   static const route = "home_screen";
   const HomeScreen({Key? key}) : super(key: key);
-
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
@@ -70,6 +70,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
                   InkWell(
                     onTap: () {
+                      ModuleConstant.screenType =
+                          ModuleConstant.MODULE_TYPE_LEAD_SCREEN;
                       Navigator.of(context).pushNamed(LeadScreen.routes);
                     },
                     child: getContainer(
@@ -77,10 +79,17 @@ class _HomeScreenState extends State<HomeScreen> {
                         title: "Inquiry",
                         imageSize: getSize(125, context)),
                   ),
-                  getContainer(
-                      image: TaskIcon,
-                      title: "Task",
-                      imageSize: getSize(125, context))
+                  InkWell(
+                    onTap: () {
+                      ModuleConstant.screenType =
+                          ModuleConstant.MODULE_TYPE_TASK_SCREEN;
+                      Navigator.of(context).pushNamed(LeadScreen.routes);
+                    },
+                    child: getContainer(
+                        image: TaskIcon,
+                        title: "Task",
+                        imageSize: getSize(125, context)),
+                  )
                 ],
               ),
               SizedBox(

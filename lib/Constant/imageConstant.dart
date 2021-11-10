@@ -23,3 +23,11 @@ const String Funnel3 = "assets/funnel_3.png";
 const String Funnel4 = "assets/funnel_4.png";
 const String Funnel5 = "assets/funnel_5.png";
 const String Funnel6 = "assets/funnel_6.png";
+
+//TaskScreen
+const String TaskALLTask = "assets/ic_taskalltasks.png";
+const String TaskCloseTask = "assets/ic_taskclosetasks.png";
+const String TaskFollowingTask = "assets/ic_taskfollowingtasks.png";
+const String TaskNewDueTask = "assets/ic_tasknewduetasks.png";
+const String TaskOpenTask = "assets/ic_taskopentasks.png";
+const String TaskOverDueTask = "assets/ic_taskoverduetasks.png";

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:h_office/Constant/constant.dart';
 import 'package:h_office/Constant/imageConstant.dart';
 import 'package:h_office/Helper/theme_helper.dart';
 import 'package:h_office/Utils/math_utils.dart';
@@ -36,15 +37,32 @@ class _LeadScreenState extends State<LeadScreen> {
     LeadTotalFollowUp,
     LeadForecast
   ];
+  List<String> taskCategoriesImage = [
+    TaskNewDueTask,
+    TaskOverDueTask,
+    TaskFollowingTask,
+    TaskOpenTask,
+    TaskCloseTask,
+    TaskALLTask,
+  ];
+  List<String> taskCategoriesTitle = [
+    "New Tasks",
+    "Overdue Task",
+    "Following Task",
+    "Open Task",
+    "Close Task",
+    "All Task",
+  ];
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          leading: Image(
-            image: AssetImage(h_logo2),
-            color: appTheme.primaryTheme,
-            width: getSize(20, context),
+          leading: Padding(
+            padding: EdgeInsets.all(10),
+            child: Image(
+              image: AssetImage(h_logo2),
+            ),
           ),
           actions: [
             IconButton(onPressed: () {}, icon: Icon(Icons.notifications)),
@@ -54,7 +72,10 @@ class _LeadScreenState extends State<LeadScreen> {
           ],
           backgroundColor: appTheme.themeBackground,
           title: Text(
-            "Laed",
+            (ModuleConstant.screenType ==
+                    ModuleConstant.MODULE_TYPE_TASK_SCREEN)
+                ? "Task"
+                : "Lead",
             style: TextStyle(
                 color: Colors.white, fontSize: getFontSize(25, context)),
           ),
@@ -93,7 +114,10 @@ class _LeadScreenState extends State<LeadScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text("01/11/2021-30/11/2021"),
-                        Text("My Inquiry"),
+                        Text((ModuleConstant.screenType ==
+                                ModuleConstant.MODULE_TYPE_TASK_SCREEN)
+                            ? "My Task"
+                            : "My Inquiry"),
                       ],
                     ),
                   ),
@@ -105,14 +129,24 @@ class _LeadScreenState extends State<LeadScreen> {
                       child: Column(
                         children: [
                           Container(
-                            height: getSize(390, context),
+                            height: getSize(
+                                (ModuleConstant.screenType ==
+                                        ModuleConstant.MODULE_TYPE_TASK_SCREEN)
+                                    ? 260
+                                    : 390,
+                                context),
                             width: MediaQuery.of(context).size.width,
                             child: Container(
                               padding: EdgeInsets.symmetric(
                                   horizontal: getSize(10, context),
                                   vertical: getSize(0, context)),
                               child: GridView.builder(
-                                  itemCount: leadCategoriesTitle.length,
+                                  physics: NeverScrollableScrollPhysics(),
+                                  itemCount: (ModuleConstant.screenType ==
+                                          ModuleConstant
+                                              .MODULE_TYPE_TASK_SCREEN)
+                                      ? taskCategoriesImage.length
+                                      : leadCategoriesTitle.length,
                                   gridDelegate:
                                       SliverGridDelegateWithFixedCrossAxisCount(
                                     crossAxisCount:
@@ -144,12 +178,20 @@ class _LeadScreenState extends State<LeadScreen> {
                                                 color: appTheme.primaryTheme),
                                           ),
                                           Image(
-                                            image: AssetImage(
-                                                leadCategoriesImage[index]),
+                                            image: AssetImage((ModuleConstant
+                                                        .screenType ==
+                                                    ModuleConstant
+                                                        .MODULE_TYPE_TASK_SCREEN)
+                                                ? taskCategoriesImage[index]
+                                                : leadCategoriesImage[index]),
                                             width: getSize(50, context),
                                           ),
                                           Text(
-                                            leadCategoriesTitle[index],
+                                            (ModuleConstant.screenType ==
+                                                    ModuleConstant
+                                                        .MODULE_TYPE_TASK_SCREEN)
+                                                ? taskCategoriesTitle[index]
+                                                : leadCategoriesTitle[index],
                                             style: TextStyle(
                                                 fontSize:
                                                     getFontSize(15, context)),
@@ -161,42 +203,61 @@ class _LeadScreenState extends State<LeadScreen> {
                                   }),
                             ),
                           ),
-                          getFunnelContainer(
-                              context: context,
-                              image: Funnel1,
-                              width: 450,
-                              height: 70,
-                              text: "1 (Prospect)"),
-                          getFunnelContainer(
-                              context: context,
-                              image: Funnel2,
-                              width: 450,
-                              height: 70,
-                              text: "1 (Lead)"),
-                          getFunnelContainer(
-                              context: context,
-                              image: Funnel3,
-                              width: 450,
-                              height: 70,
-                              text: "0 (Q.Lead"),
-                          getFunnelContainer(
-                              context: context,
-                              image: Funnel4,
-                              width: 450,
-                              height: 70,
-                              text: "0 (Opportunity)"),
-                          getFunnelContainer(
-                              context: context,
-                              image: Funnel5,
-                              width: 450,
-                              height: 70,
-                              text: "0 (Lost)"),
-                          getFunnelContainer(
-                              context: context,
-                              image: Funnel6,
-                              width: 450,
-                              height: 70,
-                              text: "2 (Won)"),
+                          if (ModuleConstant.screenType ==
+                              ModuleConstant.MODULE_TYPE_LEAD_SCREEN)
+                            Column(
+                              children: [
+                                getFunnelContainer(
+                                    context: context,
+                                    image: Funnel1,
+                                    width: 450,
+                                    height: 70,
+                                    text: "1 (Prospect)"),
+                                getFunnelContainer(
+                                    context: context,
+                                    image: Funnel2,
+                                    width: 450,
+                                    height: 70,
+                                    text: "1 (Lead)"),
+                                getFunnelContainer(
+                                    context: context,
+                                    image: Funnel3,
+                                    width: 450,
+                                    height: 70,
+                                    text: "0 (Q.Lead"),
+                                getFunnelContainer(
+                                    context: context,
+                                    image: Funnel4,
+                                    width: 450,
+                                    height: 70,
+                                    text: "0 (Opportunity)"),
+                                getFunnelContainer(
+                                    context: context,
+                                    image: Funnel5,
+                                    width: 450,
+                                    height: 70,
+                                    text: "0 (Lost)"),
+                                getFunnelContainer(
+                                    context: context,
+                                    image: Funnel6,
+                                    width: 450,
+                                    height: 70,
+                                    text: "2 (Won)"),
+                              ],
+                            ),
+                          if (ModuleConstant.screenType ==
+                              ModuleConstant.MODULE_TYPE_TASK_SCREEN)
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "All Open Tasks",
+                                  style: TextStyle(
+                                      fontSize: getFontSize(20, context)),
+                                ),
+                              ],
+                            ),
                         ],
                       ),
                     ),
