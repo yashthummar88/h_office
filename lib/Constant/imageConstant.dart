@@ -34,3 +34,6 @@ const String TaskOverDueTask = "assets/ic_taskoverduetasks.png";
 
 //SplashScreen
 const String SplashScreenImage = "assets/loaderpage.gif";
+
+//SettingScreen
+const String SyncIcon = "assets/sync.png";

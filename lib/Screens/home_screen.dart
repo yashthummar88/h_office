@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:h_office/Constant/constant.dart';
 import 'package:h_office/Constant/imageConstant.dart';
 import 'package:h_office/Helper/theme_helper.dart';
-import 'package:h_office/Screens/contact_screen.dart';
+import 'package:h_office/Screens/ContactScreens/contact_screen.dart';
 import 'package:h_office/Screens/lead&task_screen.dart';
+import 'package:h_office/Screens/setting_screen.dart';
 import 'package:h_office/Utils/math_utils.dart';
 import 'dart:math' as math;
 
@@ -35,7 +36,11 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           actions: [
             IconButton(onPressed: () {}, icon: Icon(Icons.notifications)),
-            IconButton(onPressed: () {}, icon: Icon(Icons.settings)),
+            IconButton(
+                onPressed: () {
+                  Navigator.of(context).pushNamed(SettingScreen.routes);
+                },
+                icon: Icon(Icons.settings)),
             IconButton(onPressed: () {}, icon: Icon(Icons.power_settings_new)),
           ],
           backgroundColor: appTheme.themeBackground,

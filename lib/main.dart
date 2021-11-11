@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:h_office/Screens/contact_screen.dart';
+import 'package:h_office/Screens/ContactScreens/contact_screen.dart';
 import 'package:h_office/Screens/home_screen.dart';
 import 'package:h_office/Screens/lead&task_screen.dart';
+import 'package:h_office/Screens/setting_screen.dart';
 import 'package:h_office/Screens/splash_screen.dart';
 
 import 'Helper/theme_helper.dart';
@@ -41,6 +42,7 @@ class _MyAppState extends State<MyApp> {
         ContactScreen.routes: (context) => ContactScreen(),
         TaskScreen.routes: (context) => TaskScreen(),
         LeadScreen.routes: (context) => LeadScreen(),
+        SettingScreen.routes: (context) => SettingScreen(),
       },
     );
   }
