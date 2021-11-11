@@ -24,10 +24,15 @@ class _ContactScreenState extends State<ContactScreen> {
         child: Scaffold(
           appBar: AppBar(
             backgroundColor: appTheme.themeBackground,
-            leading: Padding(
-              padding: EdgeInsets.all(10),
-              child: Image(
-                image: AssetImage(h_logo2),
+            leading: InkWell(
+              onTap: () {
+                Navigator.of(context).pop();
+              },
+              child: Padding(
+                padding: EdgeInsets.all(10),
+                child: Image(
+                  image: AssetImage(h_logo2),
+                ),
               ),
             ),
             title: Text(
@@ -100,6 +105,9 @@ class _ContactScreenState extends State<ContactScreen> {
                         onTap: () {
                           if (radioVisible == false) {
                             radioVisible = true;
+                          } else {
+                            FocusManager.instance.primaryFocus?.unfocus();
+                            radioVisible = false;
                           }
                           setState(() {});
                         },
@@ -114,18 +122,9 @@ class _ContactScreenState extends State<ContactScreen> {
                           ),
                           suffixIcon: (!radioVisible)
                               ? SizedBox()
-                              : InkWell(
-                                  onTap: () {
-                                    FocusManager.instance.primaryFocus
-                                        ?.unfocus();
-                                    setState(() {
-                                      radioVisible = false;
-                                    });
-                                  },
-                                  child: Icon(
-                                    Icons.close,
-                                    color: appTheme.themeBackground,
-                                  ),
+                              : Icon(
+                                  Icons.close,
+                                  color: appTheme.themeBackground,
                                 ),
                           focusedBorder: UnderlineInputBorder(
                             borderSide: BorderSide(

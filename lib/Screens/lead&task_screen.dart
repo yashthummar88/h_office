@@ -6,6 +6,7 @@ import 'package:h_office/Screens/TaskScreens/task_screen.dart';
 import 'package:h_office/Utils/math_utils.dart';
 import 'package:h_office/Utils/utilities.dart';
 import 'package:h_office/main.dart';
+import 'LeadScreens/lead_screen.dart';
 
 class LeadTaskScreen extends StatefulWidget {
   static const routes = "lead_and_task_screen";
@@ -59,10 +60,15 @@ class _LeadTaskScreenState extends State<LeadTaskScreen> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          leading: Padding(
-            padding: EdgeInsets.all(10),
-            child: Image(
-              image: AssetImage(h_logo2),
+          leading: InkWell(
+            onTap: () {
+              Navigator.of(context).pop();
+            },
+            child: Padding(
+              padding: EdgeInsets.all(10),
+              child: Image(
+                image: AssetImage(h_logo2),
+              ),
             ),
           ),
           actions: [
@@ -155,8 +161,8 @@ class _LeadTaskScreenState extends State<LeadTaskScreen> {
                                                 Orientation.landscape
                                             ? 3
                                             : 3,
-                                    crossAxisSpacing: 10,
-                                    mainAxisSpacing: 10,
+                                    crossAxisSpacing: getSize(10, context),
+                                    mainAxisSpacing: getSize(10, context),
                                     childAspectRatio: (5 / 4.7),
                                   ),
                                   itemBuilder: (context, index) {
@@ -170,6 +176,12 @@ class _LeadTaskScreenState extends State<LeadTaskScreen> {
                                               taskCategoriesTitle[index];
                                           Navigator.of(context)
                                               .pushNamed(TaskScreen.routes);
+                                        } else {
+                                          LeadScreenModuleConstant
+                                                  .leadScreenType =
+                                              leadCategoriesTitle[index];
+                                          Navigator.of(context)
+                                              .pushNamed(LeadScreen.routes);
                                         }
                                       },
                                       child: Container(

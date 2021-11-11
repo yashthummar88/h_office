@@ -22,10 +22,15 @@ class _HomeScreenState extends State<HomeScreen> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          leading: Padding(
-            padding: EdgeInsets.all(10),
-            child: Image(
-              image: AssetImage(h_logo2),
+          leading: InkWell(
+            onTap: () {
+              Navigator.of(context).pop();
+            },
+            child: Padding(
+              padding: EdgeInsets.all(10),
+              child: Image(
+                image: AssetImage(h_logo2),
+              ),
             ),
           ),
           actions: [

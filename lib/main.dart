@@ -5,6 +5,7 @@ import 'package:h_office/Screens/lead&task_screen.dart';
 import 'package:h_office/Screens/splash_screen.dart';
 
 import 'Helper/theme_helper.dart';
+import 'Screens/LeadScreens/lead_screen.dart';
 import 'Screens/TaskScreens/task_screen.dart';
 import 'Screens/login_screen.dart';
 
@@ -39,6 +40,7 @@ class _MyAppState extends State<MyApp> {
         LeadTaskScreen.routes: (context) => LeadTaskScreen(),
         ContactScreen.routes: (context) => ContactScreen(),
         TaskScreen.routes: (context) => TaskScreen(),
+        LeadScreen.routes: (context) => LeadScreen(),
       },
     );
   }
