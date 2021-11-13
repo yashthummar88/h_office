@@ -1,4 +1,7 @@
 //HomeScreen
+import 'package:flutter/material.dart';
+import 'package:h_office/Screens/TaskScreens/task_screen.dart';
+
 const String logo = "assets/logo.png";
 const String InquiryIcon = "assets/icon_homelead.png";
 const String TaskIcon = "assets/icon_hometask.png";
@@ -37,3 +40,14 @@ const String SplashScreenImage = "assets/loaderpage.gif";
 
 //SettingScreen
 const String SyncIcon = "assets/sync.png";
+
+//Create Task BottomSheet
+const String TaskAssignTo = "assets/icon_taskassign.png";
+const String TaskContact = "assets/icon_taskcontact.png";
+const String TaskDueDate = "assets/icon_taskduedate.png";
+const String TaskStatus = "assets/icon_taskstatus.png";
+const String TaskAttach = "assets/icon_taskattachment.png";
+const String TaskPriority = "assets/icon_taskpriority.png";
+const String TaskActivity = "assets/icon_taskactivity.png";
+const String TaskLead = "assets/icon_taskrelated.png";
+const String TaskSend = "assets/icon_tasksend.png";

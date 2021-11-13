@@ -5,6 +5,7 @@ import 'package:h_office/Helper/theme_helper.dart';
 import 'package:h_office/Screens/TaskScreens/task_screen.dart';
 import 'package:h_office/Utils/math_utils.dart';
 import 'package:h_office/Utils/utilities.dart';
+import 'package:h_office/Widgets/bottom_sheet.dart';
 import 'package:h_office/main.dart';
 import 'LeadScreens/lead_screen.dart';
 
@@ -335,16 +336,34 @@ class _LeadTaskScreenState extends State<LeadTaskScreen> {
         SizedBox(
           width: getSize(7, context),
         ),
-        FloatingActionButton(
-          heroTag: "a21",
-          mini: true,
-          onPressed: () {},
-          child: Image(
-            image: AssetImage(image),
-            width: getSize(imageSize, context),
+        Padding(
+          padding: EdgeInsets.only(right: getSize(8, context)),
+          child: InkWell(
+            onTap: () {
+              if (title == "Task") {
+                print("Task");
+                _showMyBottomSheet();
+              }
+            },
+            child: CircleAvatar(
+              backgroundColor: appTheme.primaryTheme,
+              radius: getSize(23, context),
+              child: Image(
+                image: AssetImage(image),
+                width: getSize(imageSize, context),
+              ),
+            ),
           ),
         ),
       ],
     );
+  }
+
+  void _showMyBottomSheet() {
+    showModalBottomSheet(
+        context: context,
+        builder: (BuildContext context) {
+          return MyBottomSheetLayout();
+        });
   }
 }
