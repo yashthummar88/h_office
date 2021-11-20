@@ -3,6 +3,7 @@ import 'package:h_office/Constant/constant.dart';
 import 'package:h_office/Constant/imageConstant.dart';
 import 'package:h_office/Helper/theme_helper.dart';
 import 'package:h_office/Screens/TaskScreens/task_screen.dart';
+import 'package:h_office/Screens/add_prospect_screen.dart';
 import 'package:h_office/Utils/math_utils.dart';
 import 'package:h_office/Utils/utilities.dart';
 import 'package:h_office/Widgets/bottom_sheet.dart';
@@ -88,26 +89,34 @@ class _LeadTaskScreenState extends State<LeadTaskScreen> {
                 color: Colors.white, fontSize: getFontSize(25, context)),
           ),
         ),
-        floatingActionButton: ExpandableFab(
-          distance: 112.0,
-          children: [
-            getRow(
-                context: context,
-                image: TaskIcon,
-                title: "Task",
-                imageSize: 25),
-            getRow(
-                context: context,
-                image: ContactIcon,
-                title: "Raw Data",
-                imageSize: 35),
-            getRow(
-                context: context,
-                image: InquiryIcon,
-                title: "Inquiry",
-                imageSize: 35),
-          ],
-        ),
+        floatingActionButton: ((ModuleConstant.screenType ==
+                ModuleConstant.MODULE_TYPE_TASK_SCREEN))
+            ? FloatingActionButton(
+                onPressed: () {
+                  _showMyBottomSheet();
+                },
+                child: Icon(Icons.add),
+              )
+            : ExpandableFab(
+                distance: 112.0,
+                children: [
+                  getRow(
+                      context: context,
+                      image: TaskIcon,
+                      title: "Task",
+                      imageSize: 25),
+                  getRow(
+                      context: context,
+                      image: ContactIcon,
+                      title: "Raw Data",
+                      imageSize: 35),
+                  getRow(
+                      context: context,
+                      image: InquiryIcon,
+                      title: "Inquiry",
+                      imageSize: 35),
+                ],
+              ),
         body: Stack(
           children: [
             Column(
@@ -343,6 +352,8 @@ class _LeadTaskScreenState extends State<LeadTaskScreen> {
               if (title == "Task") {
                 print("Task");
                 _showMyBottomSheet();
+              } else if (title == "Raw Data") {
+                Navigator.of(context).pushNamed(AddProspectScreen.routes);
               }
             },
             child: CircleAvatar(

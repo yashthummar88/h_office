@@ -142,11 +142,14 @@ class _MyBottomSheetLayoutState extends State<MyBottomSheetLayout> {
                                   image: AssetImage(images[index]),
                                   height: getSize(54, context),
                                 ),
-                                Text(
-                                  title[index],
-                                  style: TextStyle(
-                                      fontSize: getFontSize(18, context),
-                                      color: Colors.black54),
+                                Flexible(
+                                  child: Text(
+                                    title[index],
+                                    style: TextStyle(
+                                        fontSize: getFontSize(16, context),
+                                        color: Colors.black54),
+                                    softWrap: true,
+                                  ),
                                 ),
                               ],
                             ),

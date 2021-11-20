@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:h_office/Screens/ContactScreens/contact_screen.dart';
+import 'package:h_office/Screens/add_prospect_screen.dart';
 import 'package:h_office/Screens/home_screen.dart';
 import 'package:h_office/Screens/lead&task_screen.dart';
 import 'package:h_office/Screens/setting_screen.dart';
@@ -12,6 +14,7 @@ import 'Screens/login_screen.dart';
 
 void main() {
   runApp(MyApp());
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 }
 
 class MyApp extends StatefulWidget {
@@ -43,6 +46,7 @@ class _MyAppState extends State<MyApp> {
         TaskScreen.routes: (context) => TaskScreen(),
         LeadScreen.routes: (context) => LeadScreen(),
         SettingScreen.routes: (context) => SettingScreen(),
+        AddProspectScreen.routes: (context) => AddProspectScreen(),
       },
     );
   }

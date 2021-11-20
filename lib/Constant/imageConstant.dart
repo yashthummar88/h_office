@@ -51,3 +51,18 @@ const String TaskPriority = "assets/icon_taskpriority.png";
 const String TaskActivity = "assets/icon_taskactivity.png";
 const String TaskLead = "assets/icon_taskrelated.png";
 const String TaskSend = "assets/icon_tasksend.png";
+
+//Add Prospect
+const String ProspectAddress = "assets/prospect/ic_address.png";
+const String ProspectEmail = "assets/prospect/ic_email.png";
+const String ProspectMOB = "assets/prospect/ic_mob.png";
+const String ProspectOffice = "assets/prospect/ic_office.png";
+const String ProspectPerson = "assets/prospect/ic_person.png";
+const String ProspectPinCode = "assets/prospect/ic_pincode.png";
+const String ProspectUser = "assets/prospect/icon_user.png";
+const String ProspectCompany = "assets/prospect/ic_company.png";
+const String ProspectDropDownIcon = "assets/prospect/spinner_icon.png";
+const String ProspectPhone = "assets/prospect/ic_phone.png";
+const String ProspectTelephone = "assets/prospect/ic_home.png";
+const String ProspectWeb = "assets/prospect/ic_web.png";
+const String ProspectLinkedIN = "assets/prospect/ic_linkedin.png";

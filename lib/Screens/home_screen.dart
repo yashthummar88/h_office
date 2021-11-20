@@ -3,6 +3,7 @@ import 'package:h_office/Constant/constant.dart';
 import 'package:h_office/Constant/imageConstant.dart';
 import 'package:h_office/Helper/theme_helper.dart';
 import 'package:h_office/Screens/ContactScreens/contact_screen.dart';
+import 'package:h_office/Screens/add_prospect_screen.dart';
 import 'package:h_office/Screens/lead&task_screen.dart';
 import 'package:h_office/Screens/setting_screen.dart';
 import 'package:h_office/Utils/math_utils.dart';
@@ -155,6 +156,8 @@ class _HomeScreenState extends State<HomeScreen> {
               if (title == "Task") {
                 print("Task");
                 _showMyBottomSheet();
+              } else if (title == "Raw Data") {
+                Navigator.of(context).pushNamed(AddProspectScreen.routes);
               }
             },
             child: CircleAvatar(
