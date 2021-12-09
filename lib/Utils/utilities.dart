@@ -263,3 +263,10 @@ getTextItems({required String title, required String text}) {
     ),
   );
 }
+
+bool isNullEmptyOrFalse(dynamic o) {
+  if (o is Map<String, dynamic> || o is List<dynamic>) {
+    return o == null || o.length == 0;
+  }
+  return o == null || false == o || "" == o;
+}

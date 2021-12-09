@@ -37,19 +37,25 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           actions: [
-            IconButton(onPressed: () {}, icon: Icon(Icons.notifications)),
-            IconButton(
-                onPressed: () {
-                  Navigator.of(context).pushNamed(SettingScreen.routes);
-                },
-                icon: Icon(Icons.settings)),
-            IconButton(onPressed: () {}, icon: Icon(Icons.power_settings_new)),
+             InkWell(onTap: (){},child: Icon(Icons.notifications,size: getSize(25,context))),
+            SizedBox(width: getSize(10,context),),
+            InkWell(onTap: (){Navigator.of(context).pushNamed(SettingScreen.routes);},child: Icon(Icons.settings,size: getSize(25,context),)),
+            SizedBox(width: getSize(10,context),),
+            Icon(Icons.power_settings_new,size: getSize(25,context),),
+            SizedBox(width: getSize(10,context),),
+            // IconButton(onPressed: () {}, icon: Icon(Icons.notifications)),
+            // IconButton(
+            //     onPressed: () {
+            //       Navigator.of(context).pushNamed(SettingScreen.routes);
+            //     },
+            //     icon: Icon(Icons.settings)),
+            // IconButton(onPressed: () {}, icon: Icon(Icons.power_settings_new)),
           ],
           backgroundColor: appTheme.themeBackground,
           title: Text(
             "Home",
             style: TextStyle(
-                color: Colors.white, fontSize: getFontSize(25, context)),
+                color: Colors.white, fontSize: getFontSize(20, context)),
           ),
         ),
         floatingActionButton: ExpandableFab(
@@ -179,24 +185,39 @@ class _HomeScreenState extends State<HomeScreen> {
       required String title,
       required double imageSize}) {
     return Container(
-      alignment: Alignment.center,
-      height: getSize(150, context),
-      width: getSize(150, context),
+      padding: EdgeInsets.symmetric(horizontal: getSize(15, context)),
+      //alignment: Alignment.center,
+      // height: getSize(
+      //   150,
+      // ),
+      // width: getSize(
+      //   150,
+      // ),
       color: appTheme.themeBackground,
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SizedBox(
-            height: getSize(10, context),
-          ),
+          // SizedBox(
+          //   height: getSize(10, context),
+          // ),
           Image(
             image: AssetImage(image),
-            width: getSize(imageSize, context),
+            width: getSize(
+              imageSize,context
+            ),
+            height: getSize(
+              imageSize,context
+            ),
           ),
           Text(
             title,
             style: TextStyle(
-                color: Colors.white, fontSize: getFontSize(20, context)),
-          )
+                color: Colors.white,
+                fontSize: getFontSize(
+                  20,context
+                )),
+          ),
+          SizedBox(height: getSize(10, context),)
         ],
       ),
     );

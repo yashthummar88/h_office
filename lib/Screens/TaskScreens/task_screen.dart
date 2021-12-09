@@ -28,7 +28,7 @@ class _TaskScreenState extends State<TaskScreen> {
           title: Text(
             "Task List",
             style: TextStyle(
-                color: Colors.white, fontSize: getFontSize(25, context)),
+                color: Colors.white, fontSize: getFontSize(20, context)),
           ),
         ),
         body: Container(

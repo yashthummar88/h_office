@@ -62,15 +62,10 @@ class _LeadTaskScreenState extends State<LeadTaskScreen> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          leading: InkWell(
-            onTap: () {
-              Navigator.of(context).pop();
-            },
-            child: Padding(
-              padding: EdgeInsets.all(10),
-              child: Image(
-                image: AssetImage(h_logo2),
-              ),
+          leading: Padding(
+            padding: EdgeInsets.all(10),
+            child: Image(
+              image: AssetImage(h_logo2),
             ),
           ),
           actions: [
@@ -85,78 +80,82 @@ class _LeadTaskScreenState extends State<LeadTaskScreen> {
                     ModuleConstant.MODULE_TYPE_TASK_SCREEN)
                 ? "Task"
                 : "Lead",
+                 overflow: TextOverflow.fade,
+                 textAlign: TextAlign.left,
             style: TextStyle(
-                color: Colors.white, fontSize: getFontSize(25, context)),
+                color: Colors.white,fontWeight: FontWeight.w600,
+                
+                fontSize: getFontSize(
+                  20,context
+                )),
           ),
         ),
-        floatingActionButton: ((ModuleConstant.screenType ==
-                ModuleConstant.MODULE_TYPE_TASK_SCREEN))
-            ? FloatingActionButton(
-                onPressed: () {
-                  _showMyBottomSheet();
-                },
-                child: Icon(Icons.add),
-              )
-            : ExpandableFab(
-                distance: 112.0,
-                children: [
-                  getRow(
-                      context: context,
-                      image: TaskIcon,
-                      title: "Task",
-                      imageSize: 25),
-                  getRow(
-                      context: context,
-                      image: ContactIcon,
-                      title: "Raw Data",
-                      imageSize: 35),
-                  getRow(
-                      context: context,
-                      image: InquiryIcon,
-                      title: "Inquiry",
-                      imageSize: 35),
-                ],
-              ),
+        floatingActionButton: ExpandableFab(
+          distance: 112.0,
+          children: [
+            getRow(
+                context: context,
+                image: TaskIcon,
+                title: "Task",
+                imageSize: 25),
+            getRow(
+                context: context,
+                image: ContactIcon,
+                title: "Raw Data",
+                imageSize: 35),
+            getRow(
+                context: context,
+                image: InquiryIcon,
+                title: "Inquiry",
+                imageSize: 35),
+          ],
+        ),
         body: Stack(
           children: [
             Column(
               children: [
-                Flexible(
-                  flex: 1,
-                  child: Container(
-                    padding: EdgeInsets.symmetric(
-                        horizontal: getSize(5, context),
-                        vertical: getSize(10, context)),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text("01/11/2021-30/11/2021"),
-                        Text((ModuleConstant.screenType ==
-                                ModuleConstant.MODULE_TYPE_TASK_SCREEN)
-                            ? "My Task"
-                            : "My Inquiry"),
-                      ],
-                    ),
+                Container(
+                  height: getSize(50,context),
+                  padding: EdgeInsets.symmetric(
+                      horizontal: getSize(
+                        5,context
+                      ),
+                      vertical: getSize(
+                        10,context
+                      )),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text("01/11/2021-30/11/2021",style: TextStyle(fontSize: getSize(18,context)),),
+                      Text((ModuleConstant.screenType ==
+                              ModuleConstant.MODULE_TYPE_TASK_SCREEN)
+                          ? "My Task"
+                          : "My Inquiry",style: TextStyle(fontSize: getSize(18,context)),),
+                    ],
                   ),
                 ),
-                Flexible(
-                  flex: 20,
+                Expanded(
+                
                   child: SingleChildScrollView(
                     child: Container(
                       child: Column(
                         children: [
                           Container(
                             height: getSize(
-                                (ModuleConstant.screenType ==
-                                        ModuleConstant.MODULE_TYPE_TASK_SCREEN)
-                                    ? 260
-                                    : 390,
-                                context),
-                            width: MediaQuery.of(context).size.width,
+                              (ModuleConstant.screenType ==
+                                      ModuleConstant.MODULE_TYPE_TASK_SCREEN)
+                                  ? 220
+                                  : 300,context
+                            ),
+                            width: MathUtilities.screenWidth(context),
                             child: Container(
                               padding: EdgeInsets.symmetric(
-                                  horizontal: getSize(10, context),
-                                  vertical: getSize(0, context)),
+                                  horizontal: getSize(
+                                    10,context
+                                  ),
+                                  vertical: getSize(
+                                    0,context
+                                  )),
                               child: GridView.builder(
                                   physics: NeverScrollableScrollPhysics(),
                                   itemCount: (ModuleConstant.screenType ==
@@ -171,14 +170,14 @@ class _LeadTaskScreenState extends State<LeadTaskScreen> {
                                                 Orientation.landscape
                                             ? 3
                                             : 3,
-                                    crossAxisSpacing: getSize(10, context),
-                                    mainAxisSpacing: getSize(10, context),
-                                    childAspectRatio: (5 / 4.7),
+                                    crossAxisSpacing: getSize(10,context),
+                                    mainAxisSpacing:  getSize(10,context),
+                                    childAspectRatio: (1 / 0.7),
                                   ),
                                   itemBuilder: (context, index) {
                                     return InkWell(
                                       onTap: () {
-                                        if (ModuleConstant.screenType ==
+                                         if (ModuleConstant.screenType ==
                                             ModuleConstant
                                                 .MODULE_TYPE_TASK_SCREEN) {
                                           TaskScreenModuleConstant
@@ -196,7 +195,9 @@ class _LeadTaskScreenState extends State<LeadTaskScreen> {
                                       },
                                       child: Container(
                                         padding: EdgeInsets.symmetric(
-                                            vertical: getSize(5, context)),
+                                            vertical: getSize(
+                                          5,context
+                                        )),
                                         decoration: BoxDecoration(
                                           color: Colors.white,
                                           borderRadius:
@@ -211,7 +212,7 @@ class _LeadTaskScreenState extends State<LeadTaskScreen> {
                                             Text(
                                               "\$10",
                                               style: TextStyle(
-                                                  color: appTheme.primaryTheme),
+                                                  color: appTheme.primaryTheme,fontSize: getSize(15,context)),
                                             ),
                                             Image(
                                               image: AssetImage((ModuleConstant
@@ -220,18 +221,27 @@ class _LeadTaskScreenState extends State<LeadTaskScreen> {
                                                           .MODULE_TYPE_TASK_SCREEN)
                                                   ? taskCategoriesImage[index]
                                                   : leadCategoriesImage[index]),
-                                              width: getSize(50, context),
+                                              width: getSize(
+                                                30,context
+                                              ),
+                                              fit: BoxFit.fitWidth ,
                                             ),
-                                            Text(
-                                              (ModuleConstant.screenType ==
-                                                      ModuleConstant
-                                                          .MODULE_TYPE_TASK_SCREEN)
-                                                  ? taskCategoriesTitle[index]
-                                                  : leadCategoriesTitle[index],
-                                              style: TextStyle(
-                                                  fontSize:
-                                                      getFontSize(15, context)),
-                                              textAlign: TextAlign.center,
+                                            Container(
+                                              height: getSize(15,context),
+                                              child: FittedBox(
+                                                child: Text(
+                                                  (ModuleConstant.screenType ==
+                                                          ModuleConstant
+                                                              .MODULE_TYPE_TASK_SCREEN)
+                                                      ? taskCategoriesTitle[index]
+                                                      : leadCategoriesTitle[index],
+                                                  style: TextStyle(
+                                                      fontSize: getFontSize(
+                                                    15,context
+                                                  )),
+                                                  textAlign: TextAlign.center,
+                                                ),
+                                              ),
                                             ),
                                           ],
                                         ),
@@ -242,45 +252,47 @@ class _LeadTaskScreenState extends State<LeadTaskScreen> {
                           ),
                           if (ModuleConstant.screenType ==
                               ModuleConstant.MODULE_TYPE_LEAD_SCREEN)
-                            Column(
-                              children: [
-                                getFunnelContainer(
-                                    context: context,
-                                    image: Funnel1,
-                                    width: 450,
-                                    height: 70,
-                                    text: "1 (Prospect)"),
-                                getFunnelContainer(
-                                    context: context,
-                                    image: Funnel2,
-                                    width: 450,
-                                    height: 70,
-                                    text: "1 (Lead)"),
-                                getFunnelContainer(
-                                    context: context,
-                                    image: Funnel3,
-                                    width: 450,
-                                    height: 70,
-                                    text: "0 (Q.Lead"),
-                                getFunnelContainer(
-                                    context: context,
-                                    image: Funnel4,
-                                    width: 450,
-                                    height: 70,
-                                    text: "0 (Opportunity)"),
-                                getFunnelContainer(
-                                    context: context,
-                                    image: Funnel5,
-                                    width: 450,
-                                    height: 70,
-                                    text: "0 (Lost)"),
-                                getFunnelContainer(
-                                    context: context,
-                                    image: Funnel6,
-                                    width: 450,
-                                    height: 70,
-                                    text: "2 (Won)"),
-                              ],
+                            SingleChildScrollView(
+                              child: Column(
+                                children: [
+                                  getFunnelContainer(
+                                      context: context,
+                                      image: Funnel1,
+                                      width: 400,
+                                      height: 60,
+                                      text: "1 (Prospect)"),
+                                  getFunnelContainer(
+                                      context: context,
+                                      image: Funnel2,
+                                      width: 400,
+                                      height: 60,
+                                      text: "1 (Lead)"),
+                                  getFunnelContainer(
+                                      context: context,
+                                      image: Funnel3,
+                                      width: 400,
+                                      height: 60,
+                                      text: "0 (Q.Lead)"),
+                                  getFunnelContainer(
+                                      context: context,
+                                      image: Funnel4,
+                                      width: 400,
+                                      height: 60,
+                                      text: "0 (Opportunity)"),
+                                  getFunnelContainer(
+                                      context: context,
+                                      image: Funnel5,
+                                       width: 400,
+                                      height: 60,
+                                      text: "0 (Lost)"),
+                                  getFunnelContainer(
+                                      context: context,
+                                      image: Funnel6,
+                                      width: 400,
+                                      height: 60,
+                                      text: "2 (Won)"),
+                                ],
+                              ),
                             ),
                           if (ModuleConstant.screenType ==
                               ModuleConstant.MODULE_TYPE_TASK_SCREEN)
@@ -291,7 +303,9 @@ class _LeadTaskScreenState extends State<LeadTaskScreen> {
                                 Text(
                                   "All Open Tasks",
                                   style: TextStyle(
-                                      fontSize: getFontSize(20, context)),
+                                      fontSize: getFontSize(
+                                    20,context
+                                  )),
                                 ),
                               ],
                             ),
@@ -303,14 +317,14 @@ class _LeadTaskScreenState extends State<LeadTaskScreen> {
               ],
             ),
             Positioned(
-              bottom: getSize(92, context),
-              right: getSize(18, context),
+              bottom: getSize(92,context),
+              right: getSize(18,context),
               child: FloatingActionButton(
                 onPressed: () {},
                 heroTag: "as1",
                 child: Icon(
                   Icons.search,
-                  size: getSize(30, context),
+                  size: getSize(30,context),
                 ),
               ),
             ),
@@ -320,6 +334,7 @@ class _LeadTaskScreenState extends State<LeadTaskScreen> {
     );
   }
 
+  
   Row getRow(
       {required BuildContext context,
       required String image,

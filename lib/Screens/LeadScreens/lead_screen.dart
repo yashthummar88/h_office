@@ -88,7 +88,7 @@ class _LeadScreenState extends State<LeadScreen> {
               : Text(
                   appBarTitle,
                   style: TextStyle(
-                      color: Colors.white, fontSize: getFontSize(25, context)),
+                      color: Colors.white, fontSize: getFontSize(20, context)),
                 ),
         ),
       ),
