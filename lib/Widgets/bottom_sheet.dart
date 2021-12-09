@@ -137,6 +137,7 @@ class _MyBottomSheetLayoutState extends State<MyBottomSheetLayout> {
                         itemBuilder: (context, index) {
                           return Container(
                             child: Column(
+                              
                               children: [
                                 Image(
                                   image: AssetImage(images[index]),

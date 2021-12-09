@@ -84,7 +84,16 @@ class _LeadTaskScreenState extends State<LeadTaskScreen> {
                       children: [
                           Column(
                             children: [
-                              
+                              Container(
+                                width: getSize(70, context),
+                                height: getSize(70, context),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(getSize(100, context)),
+                                  color: Colors.black
+                                ),
+                                alignment: Alignment.center,
+                                child: AssetImage(),
+                              ),
                             ],
                           ),
                       ],

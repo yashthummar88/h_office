@@ -78,8 +78,8 @@ class _ExpandableFabState extends State<ExpandableFab>
 
   Widget _buildTapToCloseFab() {
     return SizedBox(
-      width: 56.0,
-      height: 56.0,
+      width: getSize(56.0, context),
+      height: getSize(56.0, context),
       child: Center(
         child: Material(
           color: appTheme.primaryTheme,
@@ -89,7 +89,7 @@ class _ExpandableFabState extends State<ExpandableFab>
           child: InkWell(
             onTap: _toggle,
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding:  EdgeInsets.all(getSize(8.0, context)),
               child: Icon(
                 Icons.close,
                 color: Colors.white,
@@ -176,8 +176,8 @@ class _ExpandingActionButton extends StatelessWidget {
           progress.value * maxDistance,
         );
         return Positioned(
-          top: 100.0 + offset.dx,
-          bottom: -330.00 + offset.dy,
+          top: getSize(100.0, context) + offset.dx,
+          bottom: getSize(-370.0, context) + offset.dy,
           child: Transform.rotate(
             angle: (1.0 - progress.value) * math.pi / 2,
             child: child!,
