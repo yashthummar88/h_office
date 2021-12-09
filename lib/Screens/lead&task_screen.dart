@@ -69,9 +69,30 @@ class _LeadTaskScreenState extends State<LeadTaskScreen> {
             ),
           ),
           actions: [
-            IconButton(onPressed: () {}, icon: Icon(Icons.notifications)),
+            IconButton(onPressed: () {
+              showToast(context,"No More Notification Available.", );
+            }, icon: Icon(Icons.notifications)),
             IconButton(onPressed: () {}, icon: Icon(Icons.date_range)),
-            IconButton(onPressed: () {}, icon: Icon(Icons.filter_list)),
+            IconButton(onPressed: () {
+              showDialog(context: context, builder: (context){
+                return SimpleDialog(
+                  backgroundColor: Colors.white,
+
+                  children: [
+                    Row(
+                      mainAxisSize:MainAxisSize.min,
+                      children: [
+                          Column(
+                            children: [
+                              
+                            ],
+                          ),
+                      ],
+                    ),
+                  ],
+                );
+              });
+            }, icon: Icon(Icons.filter_list)),
             IconButton(onPressed: () {}, icon: Icon(Icons.autorenew)),
           ],
           backgroundColor: appTheme.themeBackground,

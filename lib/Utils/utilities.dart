@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 // import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:h_office/Helper/theme_helper.dart';
-
+import 'package:fluttertoast/fluttertoast.dart';
 import 'dart:math' as math;
 import 'math_utils.dart';
 
@@ -269,4 +269,56 @@ bool isNullEmptyOrFalse(dynamic o) {
     return o == null || o.length == 0;
   }
   return o == null || false == o || "" == o;
+}
+
+
+showToast(
+  BuildContext context,
+  String msg, {
+  
+  
+  num timer = 3000,
+}) {
+  FToast fToast=FToast();
+   fToast.init(context);
+  Widget toast = Container(
+    padding:
+        EdgeInsets.symmetric(horizontal: getSize(16,context), vertical: getSize(16,context)),
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(
+        getSize(5,context),
+      ),
+      color: Colors.black,
+    ),
+    child: Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Expanded(
+          child: Text(
+           msg,
+            style: TextStyle().copyWith(
+              color: Colors.white,
+              fontFamily: 'CerebriSans',
+              fontSize: getSize(16,context),
+            ),
+            textAlign: TextAlign.center,
+          ),
+        ),
+      ],
+    ),
+  );
+fToast.showToast(
+        child: toast,
+        toastDuration: Duration(seconds: 2),
+       );
+  // Fluttertoast.showToast(
+  //       msg: "This is Center Short Toast",
+  //       toastLength: Toast.LENGTH_SHORT,
+
+  //       gravity: ToastGravity.CENTER,
+  //       timeInSecForIosWeb: 1,
+  //       backgroundColor: Colors.black,
+  //       textColor: Colors.white,
+  //       fontSize: getSize(16, context)
+  //   );
 }

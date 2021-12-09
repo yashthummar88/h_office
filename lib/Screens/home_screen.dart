@@ -37,7 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           actions: [
-             InkWell(onTap: (){},child: Icon(Icons.notifications,size: getSize(25,context))),
+             InkWell(onTap: (){showToast(context,"No More Notification Available.", );},child: Icon(Icons.notifications,size: getSize(25,context))),
             SizedBox(width: getSize(10,context),),
             InkWell(onTap: (){Navigator.of(context).pushNamed(SettingScreen.routes);},child: Icon(Icons.settings,size: getSize(25,context),)),
             SizedBox(width: getSize(10,context),),

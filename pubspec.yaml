@@ -25,7 +25,8 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_screenutil: null
-  shared_preferences:
+  fluttertoast: ^8.0.8
+  shared_preferences: null
 
 dev_dependencies:
   flutter_test:
